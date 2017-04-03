@@ -6,17 +6,25 @@ For now, I'll make a to-do list to divide and group up the work.
 ## To-do list (On-going)
 
 #### HTML structure
+* Teleporting proposed by Vybihal:
 ~~~~~~
-<input type="text" name="cmd"/>
-<intput type="hidden" value="10,10"/>
-~~~~~~~
-
+<form action="transporter.py">
+  <input type="hidden" name="inventory" value="10,10"/>
+  <input type="hidden" name="url" value="ourserverurl"/>
+  <input type="submit" value="Teleport to East"/>
+ </form>
+ <form action="transporter.py">
+  <input type="hidden" name="inventory" value="10,10"/>
+  <input type="hidden" name="url" value="ourserverurl"/>
+  <input type="submit" value="Teleport to West"/>
+ </form>
+ ~~~~~~~
 #### The Boss/Challenge
 - [ ] Decide on C/Python
 - [ ] On Play command, removes N, E, S, W button.
 - [ ] On Quit command, show N, E, S, W buttons.
 - [ ] Interact with CSV to display hidden resources.
-* Proposed format
+* Proposed format by Vybihal: 
 ~~~~~
 printf("content...");
 printf("<html><body><img src="someimg.png"/> 
@@ -32,13 +40,7 @@ printf("<html><body><img src="someimg.png"/>
 - [ ] Play
 - [ ] Exit
 - [ ] Refresh
-* Teleporting
-~~~~~~
-<form action="transporter.py">
-  <input type="hidden" name="inventory" value="10,10"/>
-  <input type="hidden" name="url" value="ourserverurl"/>
-  <input type="submit" value="Teleport to East"/>
- </form>
+
 ## CGI guide steps (Vybihal):  
 > 1. ssh cgi64.cs.mcgill.ca
 > 2. mkdir cgi-bin
