@@ -1,7 +1,7 @@
 # comp206a4
 
 
-Steps CGI guide:  
+CGI guide steps:  
 1. ssh cgi64.cs.mcgill.ca
 2. mkdir cgi-bin
     chmod a+rx cgi-bin
