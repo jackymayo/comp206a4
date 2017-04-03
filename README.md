@@ -1,5 +1,8 @@
 # Assignment 4 
 
+Not going to start much until teacher clarifies the assignment in his lectures.
+For now, I'll make a to-do list to divide and group up the work.
+
 ## To-do list (On-going)
 
 ####
