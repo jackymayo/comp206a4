@@ -61,7 +61,7 @@ printf("<html><body><img src="someimg.png"/>
      </form></body></html>");
 ~~~~~
 #### Textbox processing
-- [ ] C program called room.c and a.out
+- [ ] C program called room.c and room.cgi
 - [ ] Two arguments: Player's inventory and player's command.
 * Supported commands
 - [ ] Drop n
