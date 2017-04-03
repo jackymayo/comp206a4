@@ -16,12 +16,14 @@ For now, I'll make a to-do list to divide and group up the work.
 - [ ] On Play command, removes N, E, S, W button.
 - [ ] On Quit command, show N, E, S, W buttons.
 - [ ] Interact with CSV to display hidden resources.
+* Proposed format
 ~~~~~
-printf("content...")
+printf("content...");
 printf("<html><body><img src="someimg.png"/> 
   <form>
      <!-- html structure -->
      </form></body></html>");
+~~~~~
 #### Textbox processing
 - [ ] C program called room.c and a.out
 - [ ] Two arguments: Player's inventory and player's command.
@@ -30,7 +32,13 @@ printf("<html><body><img src="someimg.png"/>
 - [ ] Play
 - [ ] Exit
 - [ ] Refresh
- 
+* Teleporting
+~~~~~~
+<form action="transporter.py">
+  <input type="hidden" name="inventory" value="10,10"/>
+  <input type="hidden" name="url" value="ourserverurl"/>
+  <input type="submit" value="Teleport to East"/>
+ </form>
 ## CGI guide steps (Vybihal):  
 > 1. ssh cgi64.cs.mcgill.ca
 > 2. mkdir cgi-bin
