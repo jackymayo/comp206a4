@@ -4,9 +4,34 @@
         <link rel="stylesheet" type="text/css" href="forthecss.css"/>
     </head>
 <body>
-<h1> Assignment 4 </h1>
+    <div style="width: 400px;">
+<h1 > Assignment 4 </h1>
 <form>
     <input type="submit" text="Submit">
 </form>
+    <form action="~northStudent/transporter.py">
+  <input type="hidden" name="inventory" value="10,10"/>
+  <input type="hidden" name="URL" value="ourserverurl"/>
+  <input type="submit" value="North"/>
+ </form>
+ 
+<form action="~eastStudent/transporter.py">
+  <input type="hidden" name="inventory" value="10,10"/>
+  <input type="hidden" name="URL" value="ourserverurl"/>
+  <input type="submit" value="East"/>
+ </form>
+ 
+ <form action="~westStudent/transporter.py">
+  <input type="hidden" name="inventory" value="10,10"/>
+  <input type="hidden" name="URL" value="ourserverurl"/>
+  <input type="submit" value="West"/>
+ </form>
+ 
+ <form action="~southStudent/transporter.py">
+  <input type="hidden" name="inventory" value="10,10"/>
+  <input type="hidden" name="URL" value="ourserverurl"/>
+  <input type="submit" value="South"/>
+ </form>
+        </div>
 </body>
 </html>
