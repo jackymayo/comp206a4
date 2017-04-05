@@ -1,10 +1,10 @@
 # Assignment 4 
 
 ## Task division:
-- [ ] *Jacky*: Command processing in C
-- [ ] *Henry*: Python transporter
-- [ ] *Blair*: Game in C/Python
-- [ ] HTML: Jacky/Blair/Henry 
+- [ ] **Jacky**: Command processing in C
+- [ ] **Henry**: Python transporter
+- [ ] **Blair**: Game in C/Python
+- [ ] **All**: HTML
 ## Getting Started
 
 1. ssh into your cgi64.cs.mcgill.ca `ssh username@cgi64.cs.mcgill.ca`
