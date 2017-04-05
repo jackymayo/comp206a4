@@ -1,8 +1,10 @@
 # Assignment 4 
 
-Not going to start much until the teacher clarifies the assignment in his lectures.
-For now, I'll make a to-do list to divide and group up the work.
-
+## Task division:
+- [ ] Command processing in C: Jacky
+- [ ] Python transporter: Henry 
+- [ ] Game in C/Python: Blair
+- [ ] HTML: Jacky/Blair/Henry :D
 ## Getting Started
 
 1. ssh into your cgi64.cs.mcgill.ca `ssh username@cgi64.cs.mcgill.ca`
