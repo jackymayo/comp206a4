@@ -2,22 +2,20 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include "test.h"
 
-
-// Takes an int array and a string query and fills the array with an 
-void checkInventory(int[], char[]);
 // Will turn into a function once testing complete.
 int main(void){
     char string[] = "command=adsasd 2&inventory=10%2c4";
     int item[2];
-    checkInventory(item, string);
+    parsePlayerInventory(item, string);
 
-    printf("Mana is %d", item[0]);
-    printf("Gold is %d", item[1]);
+    printf("Mana is %d\n", item[0]);
+    printf("Gold is %d\n", item[1]);
     return 0;
 }
 
-void checkInventory(int item[], char string[]){
+void parsePlayerInventory(int item[], char string[]){
     char *point;
     // Get the location of inventory and skip to numbers
     point = strstr(string, "inventory="); 
