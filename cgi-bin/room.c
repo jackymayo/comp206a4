@@ -17,10 +17,10 @@ int main(void){
             a++;
         }
     }
-    string[a] = '\0';
+    string[++a] = '\0';
 
     printf("%s%c%c\n","ContentType:text/html;charset=iso-8859-1",13,10);
     printf("%s", string);
-    
+
     return 0;
 };
