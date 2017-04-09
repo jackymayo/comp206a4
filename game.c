@@ -4,6 +4,7 @@ nclude <stdio.h>
 	#include <ctype.h>
 	#include <string.h>
 int isNumber (char *);
+int isQuit	(char *);
 int main (void){
 	srand(time(NULL));
 	int randomNum = rand() % 10 + 1;
@@ -12,18 +13,17 @@ int main (void){
 	int limit = 3;
 	char buffer [10];
 	char quit [4] = "quit";
-	char Quit [4] = "Quit";
-	char QUIT [4] = "QUIT";
+	
 
 	printf("Guess a number between 0 and 10 in 3 tries. \n");
 	printf("%d \n", randomNum);
 	while (1){
 		scanf("%s", buffer);
-		if (!strncmp(buffer, quit,4) || !strncmp(buffer, QUIT,4) || !strncmp(buffer, Quit,4) ){
+		if (isQuit(buffer)){
 			printf("Thanks for playing. \n");
 			exit(1);
 		}
-		if (! isNumber(buffer )){
+		if (! isNumber(buffer)){
 			printf("Please enter a number. \n");
 		}
 		else{
@@ -52,6 +52,8 @@ int main (void){
 		}
 	}
 }
+	
+
 int isNumber (char * buff){
 	int length = strlen (buff);
 	int i;
@@ -62,5 +64,17 @@ int isNumber (char * buff){
 	}
 	return 1;
 }
+int isQuit (char * buff){
+	int length = strlen (buff);
+	int i;
+	for (i = 0; i< length; i++){
+		buff[i] = tolower(buff[i]);
+	}
+	if (strncmp(buff,"quit",4) == 0){
+		return 1;
+	}
+	return 0;
+}
+
 
 
