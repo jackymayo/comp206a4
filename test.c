@@ -5,15 +5,15 @@
 #include "test.h"
 
 // Will turn into a function once testing complete.
-int main(void){
-    char string[] = "command=adsasd 2&inventory=10%2c4";
-    int item[2];
-    parsePlayerInventory(item, string);
+// int main(void){
+//     char string[] = "command=adsasd 2&inventory=10%2c4";
+//     int item[2];
+//     parsePlayerInventory(item, string);
 
-    printf("Mana is %d\n", item[0]);
-    printf("Gold is %d\n", item[1]);
-    return 0;
-}
+//     printf("Mana is %d\n", item[0]);
+//     printf("Gold is %d\n", item[1]);
+//     return 0;
+// }
 
 void parsePlayerInventory(int item[], char string[]){
     char *point;
