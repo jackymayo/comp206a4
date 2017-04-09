@@ -9,16 +9,16 @@ int main(void){
     int n;
     n = atoi(getenv("CONTENT_LENGTH"));
     
-    while((buffer = getchar()) != EOF && a <= n){
+    while((buffer = getchar()) != EOF && a < n){
         if (a < 200){
             if (buffer!='+') 
                 string[a] = buffer;
-            else  //also need to check for percent and ampersand
+            else  
                 string[a]=' ';
             a++;
         }
     }
-    string[++a] = '\0';
+    string[a] = '\0';
 
     printf("%s%c%c\n","ContentType:text/html;charset=iso-8859-1",13,10);
     printf("%s", string);
