@@ -9,7 +9,7 @@
 
 1. ssh into your cgi64.cs.mcgill.ca `ssh username@cgi64.cs.mcgill.ca`
 2. Go to a folder where you want your git repo to be.
-3. git clone this repo: `git clone https://github.com/jackymayo/comp206a4.git`
+3. git clone this repo: `git clone https://github.com/jackymayo/comp206a4.git .`
 4. make your changes then git add the files you changed `git add transporter.py`, `git commit -m "changed this part of python script`, `git push origin master`
 
 ## To-do list (On-going)
