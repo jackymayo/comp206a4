@@ -8,7 +8,8 @@ int main(void){
     int a = 0;
     int n;
     n = atoi(getenv("CONTENT_LENGTH"));
-    while((buffer = getchar()) != EOF && a < n){
+    
+    while((buffer = getchar()) != EOF && a <= n){
         if (a < 200){
             if (buffer!='+') 
                 string[a] = buffer;
