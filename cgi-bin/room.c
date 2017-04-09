@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "../test.h"
+#include "test.h"
+
 int main(void){
     char string[200];
     char buffer;
@@ -21,7 +22,6 @@ int main(void){
     string[a] = '\0';
     int playerItem[2];
     parsePlayerInventory(playerItem, string);
-
      
     printf("%s%c%c\n","ContentType:text/html;charset=UTF-8",13,10);
     printf("Mana is %d", playerItem[0]);
