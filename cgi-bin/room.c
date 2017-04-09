@@ -1,20 +1,27 @@
 #include <stdlib.h>
+#include <stdio.h>
 
-char string[200];
-char buffer;
+int main(void){
+    char string[200];
+    char buffer;
 
-int a = 0;
-int n = atoi(getenv("CONTENT_LENGTH"));
+    int a = 0;
+    int n;
+    n = atoi(getenv("CONTENT_LENGTH"));
 
-while((bugger = getchar()) != EOF && a < n){
-    if (a < 200){
-        if (buffer!='+') string[a] = buffer;
-        else  //also need to check for percent and ampersand
-            string[a]=' ';
+    while((buffer = getchar()) != EOF && a < n){
+        if (a < 200){
+            if (buffer!='+') 
+                string[a] = buffer;
+            else  //also need to check for percent and ampersand
+                string[a]=' ';
+            a++;
+        }
     }
-}
-string[a] = '\0';
+    string[a] = '\0';
 
-printf("%s%c%c\n","ContentType:text/html;charset=iso-8859-1",13,10);
+    printf("%s%c%c\n","ContentType:text/html;charset=iso-8859-1",13,10);
+    printf("%s", string);
 
-printf(%s, string[i]);
+    return 0;
+};
