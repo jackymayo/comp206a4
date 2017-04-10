@@ -9,7 +9,7 @@ void getResources(FILE *, int[]);
 void setResources(FILE *, int[]);
 void dropCommand(int, int[], int[]);
 
-int detectCommand(char [], int[]. int[]);
+int detectCommand(char [], int[], int[]);
 int main(void){
     // Web data from post
     // Change room to change resources
@@ -41,7 +41,7 @@ int main(void){
 
     parsePlayerInventory(playerItem, queryString);
 
-    
+    detectCommand(queryString,playerItem,room);
     // file = fopen("../resources.csv", "w");
     // setResources(file,room);
 
@@ -74,7 +74,7 @@ int detectCommand(char string[], int playerItem[], int room[]){
     int i = 0;
     if (pnt != NULL){
         pnt += 5;
-        while(pnt!= ' ' or pnt!= '&'){
+        while(*pnt!= ' ' or *pnt!= '&'){
             buffer[i++] = *pnt;
         }
         buffer[i] = '\0';
