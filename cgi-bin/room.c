@@ -67,9 +67,9 @@ int main(void){
             case 1: // Drop n   
                 printRefresh(playerItem);
                 printf("<div class=\"result success\"> Success! ");
-                printf("Drop n successful! You now have\n");
-                printf("Mana is %d\n", playerItem[0]);
-                printf("Player gold is %d", playerItem[1]);
+                printf("Drop n successful! You now have:\n");
+                printf("%d Mana\n ", playerItem[0]);
+                printf("%d Gold", playerItem[1]);
                 printf("</div>");
                 break;
             case 3: // Exit
