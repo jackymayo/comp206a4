@@ -32,10 +32,7 @@ int main(void){
     while((buffer = getchar()) != EOF && a < n){
         if (a < 200){
             if (buffer!='+') 
-                queryString[a] = buffer;
-            else  
-                queryString[a]=' ';
-            a++;
+                queryString[a++] = tolower(buffer);
         }
     }
     queryString[a] = '\0';
@@ -49,16 +46,16 @@ int main(void){
     // Errors if negative
     if (status < 0){
         printRefresh(playerItem);
-        printf("<div class=\"result error\"> <h6> Error! </h6>");
+        printf("<div class=\"result error\"> <h3> Error! </h3>");
         switch (status){
             case -2:
-                printf("Not enough gold to drop :o\n");
+                printf("Not enough gold to drop :o");
                 break;
             case -3:
                 printf("Enter your gold you want to drop");
                 break;
             default:
-                printf("Invalid command.");
+                printf("invalid command.");
         }
         printf("</div>");
     }
@@ -66,8 +63,8 @@ int main(void){
         switch (status){
             case 1: // Drop n   
                 printRefresh(playerItem);
-                printf("<div class=\"result success\"> Success! ");
-                printf("Drop n successful! You now have:\n");
+                printf("<div class=\"result success\"> Drop n successful! ");
+                printf("You now have:\n");
                 printf("%d Mana\n ", playerItem[0]);
                 printf("%d Gold", playerItem[1]);
                 printf("</div>");
