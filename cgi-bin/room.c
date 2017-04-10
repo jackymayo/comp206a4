@@ -8,6 +8,8 @@ void parsePlayerInventory(int[], char[]);
 void getResources(FILE *, int[]);
 void setResources(FILE *, int[]);
 void dropCommand(int, int[], int[]);
+
+int detectCommand(char [], int[]. int[]);
 int main(void){
     // Web data from post
     // Change room to change resources
@@ -64,6 +66,23 @@ int main(void){
 
     return 0;
 };
+
+int detectCommand(char string[], int playerItem[], int room[]){
+    char *pnt;
+    pnt = strstr(string, "drop");
+    char buffer[20];
+    int i = 0;
+    if (pnt != NULL){
+        pnt += 5;
+        while(pnt!= ' ' or pnt!= '&'){
+            buffer[i++] = *pnt;
+        }
+        buffer[i] = '\0';
+        int n = atoi(buffer);
+        dropCommand(n, playerItem,room);
+    }
+    return -1;
+}
 // n is the number of gold dropped from player
 void dropCommand(int n, int playerItem[], int room[]){
     int mana = n/2;
