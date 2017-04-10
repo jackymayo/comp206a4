@@ -7,7 +7,7 @@
 void parsePlayerInventory(int[], char[]);
 void getResources(FILE *, int[]);
 void setResources(FILE *, int[]);
-void dropCommand(int);
+void dropCommand(int, int[], int[]);
 int main(void){
     // Web data from post
     // Change room to change resources
@@ -44,12 +44,28 @@ int main(void){
     // setResources(file,room);
 
     printf("%s%c%c\n","ContentType:text/html;charset=UTF-8",13,10);
-    printf("Mana is %d", playerItem[0]);
+
+    file = fopen("../template.html", "r");
+    if (file) {
+        while ((c = getc(file)) != EOF)
+            putchar(c);
+        fclose(file);
+    }
+    printf("Mana is %d\n", playerItem[0]);
     printf("Player mana is %d", playerItem[1]);
+    printf("</div>");
+    printf("</body>");
+    printf("</html>");
 
     return 0;
 };
-
+// n is the number of gold dropped from player
+void dropCommand(int n, int playerItem[], int room[]){
+    int mana = n/2;
+    playerItem[1] -= n;
+    playerItem[0] += mana;
+    room[1] += n;
+}
 void parsePlayerInventory(int item[], char string[]){
     char *point;
     // Get the location of inventory and skip to numbers
