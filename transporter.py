@@ -1,7 +1,9 @@
-#import urlparse
 import sys
 import csv
+import cgi
+form = cgi.FieldStorage()
 
+print(form.getvalue('inventory'))
 with open("resources.csv", 'r') as my_file:
     reader = csv.reader(my_file, delimiter=',')
     my_list = list(reader)
