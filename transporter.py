@@ -11,15 +11,16 @@ with open("resources.csv", 'r') as my_file:
     reader = csv.reader(my_file, delimiter=',')
     my_list = list(reader)
     #print(my_list)
-
-#print(my_list[0][2])
-if (my_list[0][2] == 0):
+my_file.close()
+print(my_list[0])
+if (my_list[0][2] == "0"):
 	#import success
+	my_list[0][2] = "1"
+	print(my_list[0])
 	with open('resources.csv','w') as opened_file:
 		writer = csv.writer(opened_file)
-		for i in range(len(my_list[0])):
-			if (i == 2):
-				writer.writerows("1")
+		writer.writerow([x for x in my_list[0]])
+		
 else:
 	#urlInv = form.values()
 	if form.has_key("url"):
