@@ -40,25 +40,24 @@ int main(void){
     queryString[a] = '\0';
 
     parsePlayerInventory(playerItem, queryString);
-
-    detectCommand(queryString,playerItem,room);
+    detectCommand(queryString, playerItem, room);
     // file = fopen("../resources.csv", "w");
     // setResources(file,room);
 
     printf("%s%c%c\n","ContentType:text/html;charset=UTF-8",13,10);
 
-    char c;
-    file = fopen("../template.html", "r");
-    if (file) {
-        while ((c = getc(file)) != EOF)
-            putchar(c);
-        fclose(file);
-    }
+    // char c;
+    // file = fopen("../template.html", "r");
+    // if (file) {
+    //     while ((c = getc(file)) != EOF)
+    //         putchar(c);
+    //     fclose(file);
+    // }
     // if success print using success css
     printf("<div class=\"result success\">");
     // printf('div class="result error"');
     printf("Mana is %d\n", playerItem[0]);
-    printf("Player mana is %d", playerItem[1]);
+    printf("Player gold is %d", playerItem[1]);
     printf("</div>");
     printf("</div>");
     printf("</body>");
@@ -73,9 +72,9 @@ int detectCommand(char string[], int playerItem[], int room[]){
     char buffer[20];
     int i = 0;
     if (pnt != NULL){
-        pnt += 5;
-        while(*pnt!= ' ' or *pnt!= '&'){
-            buffer[i++] = *pnt;
+        pnt = pnt + 5;
+        while(*pnt != ' ' && *pnt != '&' && *pnt != '\0'){
+            buffer[i++] = *pnt++;
         }
         buffer[i] = '\0';
         int n = atoi(buffer);
@@ -86,8 +85,8 @@ int detectCommand(char string[], int playerItem[], int room[]){
 // n is the number of gold dropped from player
 void dropCommand(int n, int playerItem[], int room[]){
     int mana = n/2;
-    playerItem[1] -= n;
     playerItem[0] += mana;
+    playerItem[1] -= n;
     room[1] += n;
 }
 void parsePlayerInventory(int item[], char string[]){
