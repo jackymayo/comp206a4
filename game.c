@@ -16,7 +16,6 @@ int main (void){
 	
 
 	printf("Guess a number between 0 and 10 in 3 tries. \n");
-	printf("%d \n", randomNum);
 	while (1){
 		scanf("%s", buffer);
 		if (isQuit(buffer)){
