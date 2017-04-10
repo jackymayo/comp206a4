@@ -6,7 +6,7 @@
 
 // Will turn into a function once testing complete.
 // int main(void){
-//     char string[] = "command=drop 2&inventory=10%2c10";
+//     char string[] = "command=exit&inventory=10%2c10";
 //     int item[2];
 //     parsePlayerInventory(item, string);
 
