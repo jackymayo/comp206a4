@@ -42,22 +42,13 @@ int main(void){
 
     parsePlayerInventory(playerItem, queryString);
     int status = detectCommand(queryString, playerItem, room);
-    // file = fopen("../resources.csv", "w");
-    // setResources(file,room);
 
     printf("%s%c%c\n","ContentType:text/html;charset=UTF-8",13,10);
 
-    // char c;
-    // file = fopen("../template.html", "r");
-    // if (file) {
-    //     while ((c = getc(file)) != EOF)
-    //         putchar(c);
-    //     fclose(file);
-    // }
     
     // Errors if negative
     if (status < 0){
-        // printRefresh(playerItem);
+        printRefresh(playerItem);
         printf("<div class=\"result error\"> <h6> Error! </h6>");
         switch (status){
             case -2:
@@ -74,7 +65,7 @@ int main(void){
     else{ // Successful commmands
         switch (status){
             case 1: // Drop n   
-                // printRefresh(playerItem);
+                printRefresh(playerItem);
                 printf("<div class=\"result success\"> Success! ");
                 printf("Drop n successful! You now have\n");
                 printf("Mana is %d\n", playerItem[0]);
@@ -85,7 +76,7 @@ int main(void){
                 printExit();
                 break;
             case 4: //
-                // printRefresh(playerItem);
+                printRefresh(playerItem);
             default:
                 break;
         }
