@@ -45,6 +45,7 @@ int main(void){
 
     printf("%s%c%c\n","ContentType:text/html;charset=UTF-8",13,10);
 
+    char c;
     file = fopen("../template.html", "r");
     if (file) {
         while ((c = getc(file)) != EOF)
