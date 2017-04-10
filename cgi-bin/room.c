@@ -53,7 +53,7 @@ int main(void){
         fclose(file);
     }
     // if success print using success css
-    printf('<div class="result success">');
+    printf("<div class=\"result success\">");
     // printf('div class="result error"');
     printf("Mana is %d\n", playerItem[0]);
     printf("Player mana is %d", playerItem[1]);
