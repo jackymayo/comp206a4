@@ -46,7 +46,7 @@ int main(void){
     // Errors if negative
     if (status < 0){
         printRefresh(playerItem);
-        printf("<div class=\"result error\"> <h3> Error! </h3>");
+        printf("<div class=\"result error\">  <span style=\"font-size: 16px; font-weght: bold\"> Error! </span>");
         switch (status){
             case -2:
                 printf("Not enough gold to drop :o");
@@ -55,7 +55,7 @@ int main(void){
                 printf("Enter your gold you want to drop");
                 break;
             default:
-                printf("invalid command.");
+                printf("Invalid command.");
         }
         printf("</div>");
     }
