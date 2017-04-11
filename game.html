@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="forthecss.css"/>
+        <meta charset="UTF-8">
+    </head>
+<body>
+    <img src="images/numbers-t2.jpg" style="display: block; margin: auto; opacity: 0.9;">
+    <div class="centerblock">
+        <h1 style="text-align: center;font-family: Helvetica Neue" > 🤔 Guessing game </h1>
+            <div  style="width: 500px; position: relative; margin: auto;">
+
+        <span style="font-family: Helvetica Neue;"> Guess a number between 0 and 10 in 3 tries. </span>
+        <form style="padding-top: 20px;"action="http://cs.mcgill.ca/~jma229/cgi-bin/game.cgi" method="post">
+            <input type="hidden" name="inventory" value="10,10"/>
+            <input style="width: 300px; height: 30px" type="textbox" name="command">
+            <input class="button submit" type="submit" text=" Guess">
+        </form>

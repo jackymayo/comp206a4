@@ -26,7 +26,7 @@ int main(void){
 
     char buffer;
     int a = 0;
-    int n = 50;
+    int n = 100;
     // Will need this later, used this temporarily while servers are down.
     // n = atoi(getenv("CONTENT_LENGTH"));
     while((buffer = getchar()) != EOF && a < n){
@@ -159,7 +159,7 @@ int detectCommand(char string[], int playerItem[], int room[]){
         pnt = pnt + 4;
         // Increment point until it reaches the spot, then use buffer to get digit
         for (; !isdigit(*pnt) && *pnt != '&' && *pnt != '\0'; pnt++);
-        while(*pnt != '&' && *pnt != '\0'){
+        while(isdigit(*pnt)){
             buffer[i++] = *pnt++;
         }
         // Error -3: if n was not entered

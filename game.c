@@ -1,10 +1,12 @@
-        #include <stdio.h>
-	#include <stdlib.h>
-	#include <time.h>
-	#include <ctype.h>
-	#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <ctype.h>
+#include <string.h>
 int isNumber (char *);
 int isQuit	(char *);
+int detectCommand(char[]);
+
 int main (void){
 	srand(time(NULL));
 	int randomNum = rand() % 10 + 1;
@@ -12,35 +14,33 @@ int main (void){
 	int counter = 0;
 	int limit = 3;
 	char buffer [10];
-	char quit [4] = "quit";
+	char quit [5] = "quit";
 	
 
-	printf("Guess a number between 0 and 10 in 3 tries. \n");
 	while (1){
 		scanf("%s", buffer);
 		if (isQuit(buffer)){
 			printf("Thanks for playing. \n");
-			exit(1);
+			break;
 		}
 		if (! isNumber(buffer)){
 			printf("Please enter a number. \n");
 		}
 		else{
 			guess = atoi(buffer);
-			counter ++; 
+			counter++; 
 			if (guess == randomNum){
-			if (counter == 1 ){
-				printf("Buddy, you guessed it on the first try! \n");	
-			}
-			else{
-				printf("Buddy, you guessed it! You did it in %d tries.\n", counter);
-			}
-			exit(1);
-			}
+				if (counter == 1 ){
+					printf("Buddy, you guessed it on the first try! \n");	
+				}
+				else{
+					printf("Buddy, you guessed it! You did it in %d tries.\n", counter);
+				}
+				exit(1);
+				}
 			if (counter == limit && guess != randomNum){
-			printf("You used up all your trials. The number was %d \n", randomNum);
-			return 0;
-			exit(1);
+				printf("You used up all your trials. The number was %d \n", randomNum);
+				break;
 			}
 			if (guess > randomNum){
 			printf("Your number is too high, enter a new number. You have %d trials left. \n", limit - counter);
@@ -76,4 +76,7 @@ int isQuit (char * buff){
 }
 
 
+int detectCommand(char string[]){
 
+	return -1;
+}
