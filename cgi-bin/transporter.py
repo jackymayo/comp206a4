@@ -8,30 +8,54 @@ cgitb.enable()
 import requests
 # Dictionary ["url":.."Inventory"]
 
-# form = cgi.FieldStorage()
 
-# Create pseudo form for testing purpose
-form = {"URL":"http://cs.mcgill.ca/~jma229/cgi-bin/room.cgi", "inventory":"1,0"}
+# [ ] Replace with actual form when done debugging
+# form = cgi.FieldStorage()
+form = {"URL":"http://cs.mcgill.ca/~jma229/cgi-bin/room.cgi", "inventory":"10,1"}
+
+
+# 0.1 [ ] Clean URL string to allow for success.py
+if ("cgi-bin") not in form["URL"]:
+	successURL = form["URL"] + "cgi-bin/"
+
+if ("room.cgi") not in form["URL"]:
+	successURL = form["URL"] + "success.py"
+else:
+	successURL = form["URL"].replace("room.cgi", "success.py")
 
 print "Content-Type: text/html"
 print
+
+# 1. [X] Read from content 
+# [ ] Improve dead asthetics
 player = form["inventory"].split(",")
-if (player[0] == "1"):
-	# Maybe read from a dead.html template?
+mana = player[0]
+gold = player[1]
+
+# 1. Check if player should die
+if (mana == "1"):
 	print("You just killed yourself. ")
 	sys.exit()
-with open("../resources.csv", "r") as my_file:
-    reader = csv.reader(my_file, delimiter=',')
-    my_list = list(reader)
-my_file.close()
-print(my_list[0])
-#If room isn't busy successssss
 
-if (my_list[0][2] == "0"):
-	#import success
+# 2. [X] Otherwise read from resources to check if someone is in room
+with open("../resources.csv", "r") as f:
+    reader = csv.reader(f, delimiter=',')
+    my_list = list(reader)
+f.close()
+
+# 3. [ X ] If room isn't unoccupied print our page.
+if ("0" in my_list[0][2]):
 	my_list[0][2] = "1"
 	print(my_list[0])
+	# [ ] Rewrite resource with new occupied value
 	with open('../resources.csv','w') as opened_file:
 		writer = csv.writer(opened_file)
 		writer.writerow([x for x in my_list[0]])
+	# [ ] Call refresh command 
+	r = requests.post("http://cs.mcgill.ca/~jma229/cgi-bin/room.cgi", data = { "command":"refresh", "inventory": "{0},{1}".format(mana,gold)})
 
+	print r.content
+	# [ ] Remember to call success.py
+	r = requests.post(successURL)
+
+# 4. [ ] 
