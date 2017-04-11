@@ -46,7 +46,7 @@ int main(void){
     // Errors if negative
     if (status < 0){
         printRefresh(playerItem);
-        printf("<div class=\"result error\">  <span style=\"font-size: 16px; font-weght: bold\"> Error! </span>");
+        printf("<div class=\"result error\">  <span style=\"font-size: 16px; font-weight: bold\"> Error! </span>");
         switch (status){
             case -2:
                 printf("Not enough gold to drop :o");
@@ -64,8 +64,8 @@ int main(void){
             case 1: // Drop n   
                 printRefresh(playerItem);
                 printf("<div class=\"result success\"> Drop n successful! ");
-                printf("You now have:\n");
-                printf("%d Mana\n ", playerItem[0]);
+                printf("You now have:</br>");
+                printf("%d Mana</br> ", playerItem[0]);
                 printf("%d Gold", playerItem[1]);
                 printf("</div>");
                 break;
