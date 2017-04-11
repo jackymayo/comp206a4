@@ -46,7 +46,6 @@ f.close()
 # 3. [ X ] If room isn't unoccupied print our page.
 if ("0" in my_list[0][2]):
 	my_list[0][2] = "1"
-	print(my_list[0])
 	# [ ] Rewrite resource with new occupied value
 	with open('../resources.csv','w') as opened_file:
 		writer = csv.writer(opened_file)
@@ -57,5 +56,6 @@ if ("0" in my_list[0][2]):
 	print r.content
 	# [ ] Remember to call success.py
 	r = requests.post(successURL)
-
+	print("Called success.py at" + r.url)
+print("Some redirecting page")
 # 4. [ ] 
