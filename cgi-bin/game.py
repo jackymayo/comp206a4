@@ -6,9 +6,23 @@ from random import randint
 import cgitb
 cgitb.enable()
 
+#status="error" or status="success"
 def printA(message, status):
 	print("<div class=\"result " + status + "\">" + message + "</div>")
 	return
+
+def printRoom(winForm): 
+	with open("../game.html", "r") as file:
+		lines = file.read().split('\n')
+	file.close()
+	for i in range(len(lines)): 
+		if (winForm):
+			lines[i] = lines[i].replace("none", "block")
+		lines[i] = lines[i].replace("Room has ...", "Room has {0} Mana and {1} Gold".format(resource[0][1], resource[0][1]))
+		lines[i] = lines[i].replace("?", "<input type=\"hidden\" name=\"inventory\"value=\"{0},{1}\">".format(mana,gold))
+		lines[i] =lines[i].replace("#", "<div class=\"playerItem\"> Your inventory: </br> Mana: {0} </br> Gold: {1} </div>".format(mana,gold))
+	for i in range(len(lines)):
+		print(lines[i])
 
 print "Content-Type: text/html"
 print
@@ -37,28 +51,38 @@ if 'command' in form:
 		print(r.content)
 	elif (command.isdigit()):
 		# If player guesses correctely
-		if (command == guess):
-			with ("../game.html", "r") as f:
-				lines = f.readlines()
-			lines.replace("display: none", "display: block")
-			lines.replace("Room has ...", "Room has {0} Mana and {1} Gold".format(resource[0][1], resource[0][1]))
+		if (int(command) == guess):
+			printRoom(True)
+		else:
+			printRoom(False)
+			printA("Wrong guess. Try again", "error")
+	else:
+		printRoom(False)
+		printA("Invalid Command", "error")
 	# Finish up other process 
-# New page reward form processing
+	# New page reward form processing
+elif 'reward' not in form:
+	printRoom(False)
+	printA("Invalid Command", "error")
 else:
 	reward = form['reward'].value.split(',')
-	rewardMana = float(reward[0]) + float(mana)
-	rewardGold = float(reward[1]) + float(gold)
-	roomLimitMana = float(resource[0][0]) - float(reward[0])
-	roomLimitGold = float(resource[0][1]) - float(reward[1])
+	rewardMana = int(reward[0]) + int(mana)
+	rewardGold = int(reward[1]) + int(gold)
+	roomLimitMana = int(resource[0][0]) - int(reward[0])
+	roomLimitGold = int(resource[0][1]) - int(reward[1])
 
 	# If player doesn't try to take more than is available
 	if (roomLimitMana >= 0 and roomLimitGold >=0):
-		r = requests.post("http://cs.mcgill.ca/~jma229/cgi-bin/room.cgi", data = { 'command': 'play', 'inventory': '{0},{1}'.format(rewardMana, rewardGold)})
-		print(r.content)
+		
+		if (rewardGold < 100):
+			r = requests.post("http://cs.mcgill.ca/~jma229/cgi-bin/room.cgi", data = { 'command': 'play', 'inventory': '{0},{1}'.format(rewardMana, rewardGold)})
+			print(r.content)
+			printA("Successfully added gold and mana to your inventory", "success")
+		else:
+			print("You won :D")	
 	else:
-		r = requests.post("http://cs.mcgill.ca/~jma229/cgi-bin/room.cgi", data = { 'command': 'play', 'inventory': '{0},{1}'.format(mana,gold)})
-		print(r.content)
+		printRoom(True)
 		printA("The room doesn't have the much resources, choose again.", "error")
-		# print("<div class=\"result error\"> The room doesn't have that much choose another option... </div>")
+	
 
 
