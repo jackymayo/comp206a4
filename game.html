@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="forthecss.css"/>
+        <link rel="stylesheet" type="text/css" href="../forthecss.css"/>
         <meta charset="UTF-8">
     </head>
 <body>
-    <img src="../images/numbers-t2.jpg" style="display: block; margin: auto; opacity: 0.9;">
+    <img width="60%" src="../images/unnamed1.png" style="display: block; margin: auto; opacity: 0.9;">
     <div class="centerblock">
         <h1 style="text-align: center;font-family: Helvetica Neue" > 🤔 Guessing game </h1>
             <div  style="width: 500px; position: relative; margin: auto;">
 
-        <span style="font-family: Helvetica Neue;"> Guess a number between 0 and 10. </span>
-        <form style="padding-top: 20px;" action="http://cs.mcgill.ca/~jma229/cgi-bin/game.cgi" method="post">
-            <input type="hidden" name="inventory" value="10,10"/>
+        <span style="font-family: Helvetica Neue;"> Guess a number between 0 and 10. OR type quit to exit. </span>
+        <form style="padding-top: 20px;" action="http://cs.mcgill.ca/~jma229/cgi-bin/game.py" method="post">
+            ?
             <input style="width: 300px; height: 30px" type="textbox" name="command">
             <input class="button submit" type="submit" text=" Guess">
         </form>
+        #
+        <form style="display: none" action="http://cs.mcgill.ca/~jma229/cgi-bin/game.py" method="post">
+            <h3> Success! Choose what reward you want: </h3>
+            <h3> Room has... </h3>
+            ?
+            <input type="radio" name="reward" value="5,0"/> 5 Mana, 0 gold </br>
+            <input type="radio" name="reward" value="4,1"/> 4 Mana, 1 gold </br>
+            <input type="radio" name="reward" value="3,2"/> 3 Mana, 2 gold </br>
+            <input type="radio" name="reward" value="2,3"/> 2 Mana, 3 gold </br>
+            <input type="radio" name="reward" value="1,4"/> 1 Mana, 4 gold </br>
+            <input type="radio" name="reward" value="0,5"/> 0 Mana, 5 gold </br>
+            <input class="button" type="submit" value="Grab reward"/>
+        </form>
+
+

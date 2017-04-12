@@ -9,6 +9,7 @@ void getResources(int[]);
 void setResources(int[]);
 void printRefresh(int[]);
 void printExit();
+void printGame(int[]);
 int dropCommand(int, int[], int[]);
 int exitCommand(int[], int[]);
 int detectCommand(char [], int[], int[]);
@@ -20,15 +21,12 @@ int main(void){
     char queryString[200];
     int playerItem[2];
     int room[3];
-    
 
     getResources(room);
 
     char buffer;
     int a = 0;
-    int n = 100;
-    // Will need this later, used this temporarily while servers are down.
-    // n = atoi(getenv("CONTENT_LENGTH"));
+    int n = atoi(getenv("CONTENT_LENGTH"));
     while((buffer = getchar()) != EOF && a < n){
         if (a < 200){
             if (buffer!='+') 
@@ -69,6 +67,9 @@ int main(void){
                 printf("%d Gold", playerItem[1]);
                 printf("</div>");
                 break;
+            case 2:
+                printGame(playerItem);
+                break;
             case 3: // Exit
                 printExit();
                 break;
@@ -85,6 +86,25 @@ int main(void){
     return 0;
 };
 
+void printGame(int playerItem[]){
+    char c;
+    FILE * file;
+    file = fopen("../game.html", "r");
+    if (file) {
+        while ((c = getc(file)) != EOF){
+            if( c== '?'){
+                printf("<input type=\"hidden\" name=\"inventory\"value=\"%d,%d\">", playerItem[0], playerItem[1]);
+                continue;
+            } 
+            else if(c == '#'){
+                printf("<div class=\"playerItem\"> Your inventory: </br> Mana: %d </br> Gold: %d </div>",  playerItem[0], playerItem[1]);
+            }
+            else
+                putchar(c);
+        }
+        fclose(file);
+    }
+}
 void printRefresh(int playerItem[]){
     char c;
     FILE * file;
@@ -149,8 +169,13 @@ int detectCommand(char string[], int playerItem[], int room[]){
             if (pnt == NULL){
                 pnt = strstr(string, "refresh");
                 if (pnt != NULL){
+                    // Refresh command
                     return 4;
                 }
+            }
+            else{
+                // Play command
+                return 2;
             }
         }
         else{
