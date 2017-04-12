@@ -6,6 +6,7 @@
     </head>
 <body>
     <img src="images/numbers-t2.jpg" style="display: block; margin: auto; opacity: 0.9;">
+
     <div class="centerblock">
         <h1 style="text-align: center;font-family: Helvetica Neue" > 🐝 Super Basic room </h1>
             <div  style="width: 500px; position: relative; margin: auto;">
@@ -22,13 +23,13 @@
         <input class="button" type="submit" name="direction" value="North"/>
         </form>
         
-        <form action="cgi-bin/transporter.py" method="post" >
+        <form action="http://cs.mcgill.ca/~hnguye124/cgi-bin/transporter.py" method="post" >
         <input type="hidden" name="inventory" value="10,10"/>
         <input type="hidden" name="URL" value="http://cs.mcgill.ca/~jma229/cgi-bin/room.cgi"/>
         <input class="button" type="submit" name="direction" value="East"/>
         </form>
         
-        <form action="cgi-bin/transporter.py" method="post" >
+        <form action="http://cs.mcgill.ca/~smonfo1/cgi-bin/transporter.py" method="post" >
         <input type="hidden" name="inventory" value="10,10"/>
         <input type="hidden" name="URL" value="http://cs.mcgill.ca/~jma229/cgi-bin/room.cgi"/>
         <input class="button" type="submit" name="direction" value="West"/>
@@ -40,7 +41,11 @@
         <input class="button" type="submit" name="direction" value="South"/>
         </form>
         </div>
-
+    <div class="playerItem">
+        Your inventory: </br>
+        Mana: 1 </br>
+        Gold: 0
+    </div>
     </div>
 </body>
 </html>

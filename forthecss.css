@@ -2,6 +2,7 @@
     background-color: #e6e6e6;
     border-color: #a6a6a6;
 }
+
 .button {
     background-color: white;
     border-color: black;
@@ -19,7 +20,7 @@
     margin-top: 30px;
 }
 
-.submit{
+.submit{    
     height:35px;
     width: 100px;
 }
@@ -44,4 +45,11 @@
     border: 1px solid transparent;
     border-radius: 2px;
     display: block;
+}
+
+.playerItem{
+    margin-left: 20px;
+    border: 1px solid black;
+    border-radius: 2px;
+    padding-left: 20px;
 }

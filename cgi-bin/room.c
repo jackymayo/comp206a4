@@ -94,8 +94,12 @@ void printRefresh(int playerItem[]){
             if( c== '?'){
                 printf("<input type=\"hidden\" name=\"inventory\"value=\"%d,%d\">", playerItem[0], playerItem[1]);
                 continue;
+            } 
+            else if(c == '#'){
+                printf("<div class=\"playerItem\"> Your inventory: </br> Mana: %d </br> Gold: %d </div>",  playerItem[0], playerItem[1]);
             }
-            putchar(c);
+            else
+                putchar(c);
         }
         fclose(file);
     }
@@ -130,6 +134,7 @@ int dropCommand(int n, int playerItem[], int room[]){
 int exitCommand(int playerItem[], int room[]){
     room[0] += playerItem[0];
     room[1] += playerItem[1];
+    room[2] = 0;
     setResources(room);
     return 3;
 }
