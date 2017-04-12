@@ -7,7 +7,7 @@ f.close()
 
 # 3. [ X ] If room isn't unoccupied print our page.
 my_list[0][2] = "0"
-print(my_list[0])
+
 # [ ] Rewrite resource with new occupied value
 with open('../resources.csv','w') as opened_file:
     writer = csv.writer(opened_file)
