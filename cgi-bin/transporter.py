@@ -27,10 +27,10 @@ if "URL" in form:
 	url = form['URL'].value
 	# 0.1 [X] Clean URL string to allow for success.py
 	if "cgi-bin" not in url:
-		successURL = url + "cgi-bin/"
-
+		url = url + "cgi-bin/"
 	if "room.cgi" not in url:
 		successURL = url + "success.py"
+		url = url + "room.cgi"
 	else:
 		successURL = url.replace("room.cgi", "success.py")
 
