@@ -12,6 +12,14 @@ import requests
 # [ ] Replace with actual form when done debugging
 form = cgi.FieldStorage()
 
+def writeResource(list):
+	with open('../resources.csv','w') as opened_file:
+		writer = csv.writer(opened_file)
+		writer.writerow([x for x in list[0]])
+	return
+def printHeader():
+	print("<!DOCTYPE html><html> <head><link rel=\"stylesheet\" type=\"text/css\" href=\"../forthecss.css\"/><meta charset=\"UTF-8\"></head><body>")
+	return
 print "Content-Type: text/html"
 print
 
@@ -41,30 +49,35 @@ with open("../resources.csv", "r") as f:
     my_list = list(reader)
 f.close()
 
-# 2. Check if player should die
-if (mana == "1"):
-	print("You just killed yourself. ")
-	my_list[0][0] = int(my_list[0][0]) + 1
-	with open('../resources.csv','w') as opened_file:
-		writer = csv.writer(opened_file)
-		writer.writerow([x for x in my_list[0]])
-	sys.exit()
-
 
 # 3. [X] If room isn't unoccupied print our page.
 if ("0" in my_list[0][2]):
-	my_list[0][2] = "1"
-	my_list[0][0] = int(my_list[0][0]) + 1
-	# [X] Rewrite resource with new occupied value
-	with open('../resources.csv','w') as opened_file:
-		writer = csv.writer(opened_file)
-		writer.writerow([x for x in my_list[0]])
-	# [ ] Edge case where people don't have their URL and it calls my success.py
-
-
-	# [X] Call refresh command 
-	r = requests.post("http://cs.mcgill.ca/~jma229/cgi-bin/room.cgi", data = { "command":"refresh", "inventory": "{0},{1}".format(mana,gold)})
-	print(r.content)
+	# 2. Check if player should die
+	if (int(mana) == 1):
+		print(" <img style=\"display: block; margin: auto; \" src=\"../images/death.png\"/>")
+		my_list[0][0] = int(my_list[0][0]) + 1
+		# with open('../resources.csv','w') as opened_file:
+		# 	writer = csv.writer(opened_file)
+		# 	writer.writerow([x for x in my_list[0]])
+		writeResource(my_list)
+		sys.exit()
+	else:
+		my_list[0][2] = "1"
+		my_list[0][0] = int(my_list[0][0]) + 1
+		# [X] Rewrite resource with new occupied value
+		# with open('../resources.csv','w') as opened_file:
+		# 	writer = csv.writer(opened_file)
+		# 	writer.writerow([x for x in my_list[0]])
+		writeResource(my_list)
+		# [ ] Edge case where people don't have their URL and it calls my success.py
+		r = requests.post
+		# [X] Call refresh command 
+		r = requests.post("http://cs.mcgill.ca/~jma229/cgi-bin/room.cgi", data = { "command":"refresh", "inventory": "{0},{1}".format(mana,gold)})
+		print(r.content)
 # 4. [ ] Redirect this to the original page.
 else:
+	printHeader()
 	print("Sorry, the room is full o_o")
+	print("<body> <form action=\"{0}\" method=\"post\"> <input type=\"submit\" class=\"button\" value=\"Return\"/>".format(url))
+	print("<input type=\"hidden\" name=\"inventory\" value=\"{0},{1}\"/>".format(mana,gold))
+	print("<input type=\"hidden\" name=\"command\" value=\"refresh\"> </form> </body></html>")

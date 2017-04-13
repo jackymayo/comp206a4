@@ -3,9 +3,6 @@ import csv
 import cgi
 # 2. [X] Otherwise read from resources to check if someone is in room
 
-print "Content-Type: text/html"
-print
-
 with open("../resources.csv", "r") as f:
     reader = csv.reader(f, delimiter=',')
     my_list = list(reader)

@@ -18,19 +18,26 @@ def printRoom(winForm):
 	for i in range(len(lines)): 
 		if (winForm):
 			lines[i] = lines[i].replace("none", "block")
-		lines[i] = lines[i].replace("Room has ...", "Room has {0} Mana and {1} Gold".format(resource[0][1], resource[0][1]))
+		lines[i] = lines[i].replace("Room has...", "Room has {0} Mana and {1} Gold".format(resource[0][0], resource[0][1]))
 		lines[i] = lines[i].replace("?", "<input type=\"hidden\" name=\"inventory\"value=\"{0},{1}\">".format(mana,gold))
 		lines[i] =lines[i].replace("#", "<div class=\"playerItem\"> Your inventory: </br> Mana: {0} </br> Gold: {1} </div>".format(mana,gold))
 	for i in range(len(lines)):
 		print(lines[i])
+	return
+
+def writeResource(list):
+	with open('../resources.csv','w') as opened_file:
+		writer = csv.writer(opened_file)
+		writer.writerow([x for x in list[0]])
+	return
 
 print "Content-Type: text/html"
 print
 
 form = cgi.FieldStorage()
 # Generate a number
-# guess = randint(0,10)
-guess = 2
+guess = randint(0,3)
+
 # Get the number of resources
 with open("../resources.csv", "r") as f:
     reader = csv.reader(f, delimiter=',')
@@ -77,6 +84,9 @@ else:
 		if (rewardGold < 100):
 			r = requests.post("http://cs.mcgill.ca/~jma229/cgi-bin/room.cgi", data = { 'command': 'play', 'inventory': '{0},{1}'.format(rewardMana, rewardGold)})
 			print(r.content)
+			resource[0][0] = roomLimitMana
+			resource[0][1] = roomLimitGold
+			writeResource(resource)
 			printA("Successfully added gold and mana to your inventory", "success")
 		else:
 			print("You won :D")	
