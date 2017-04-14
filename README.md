@@ -1,10 +1,10 @@
 # Assignment 4 
 
 ## Task division:
-- [ ] **Jacky**: Command processing in C
-- [ ] **Henry**: Python transporter
-- [ ] **Blair**: Game in C/Python
-- [ ] **All**: HTML
+- [ ] **Jacky**: Command processing in C, Python transporter,  Game in C/Python, HTML
+- [ ] **Henry**: Study for 273
+- [ ] **Blair**: Study for 273
+
 ## Getting Started
 
 1. ssh into your mimi.cs.mcgill.ca `ssh username@mimi.cs.mcgill.ca`
