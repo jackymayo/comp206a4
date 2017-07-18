@@ -111,7 +111,7 @@ void printRefresh(int playerItem[]){
     file = fopen("../template.html", "r");
     if (file) {
         while ((c = getc(file)) != EOF){
-            if( c== '?'){
+            if( c== '&'){
                 printf("<input type=\"hidden\" name=\"inventory\"value=\"%d,%d\">", playerItem[0], playerItem[1]);
                 continue;
             } 
