@@ -96,7 +96,7 @@ void printGame(int playerItem[]){
                 printf("<input type=\"hidden\" name=\"inventory\"value=\"%d,%d\">", playerItem[0], playerItem[1]);
                 continue;
             } 
-            else if(c == '#'){
+            else if(c == '@'){
                 printf("<div class=\"playerItem\"> Your inventory: </br> Mana: %d </br> Gold: %d </div>",  playerItem[0], playerItem[1]);
             }
             else
@@ -115,7 +115,7 @@ void printRefresh(int playerItem[]){
                 printf("<input type=\"hidden\" name=\"inventory\"value=\"%d,%d\">", playerItem[0], playerItem[1]);
                 continue;
             } 
-            else if(c == '#'){
+            else if(c == '@'){
                 printf("<div class=\"playerItem\"> Your inventory: </br> Mana: %d </br> Gold: %d </div>",  playerItem[0], playerItem[1]);
             }
             else
