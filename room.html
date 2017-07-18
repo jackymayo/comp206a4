@@ -1,52 +1,58 @@
 <!DOCTYPE html>
 <html>
     <head>
+        
         <link rel="stylesheet" type="text/css" href="forthecss.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
         <meta charset="UTF-8">
     </head>
 <body>
-    <img src="images/numbers-t2.jpg" style="display: block; margin: auto; opacity: 0.9;">
-
+    
+    <div style="height: 56px; display:block; position: absolute; top: 0px; background-color: #263238"></div>
     <div class="centerblock">
-        <h1 style="text-align: center;font-family: Helvetica Neue" > 🐝 Super Basic room </h1>
-        <div  style="width: 500px; position: relative; margin: auto;">
+        <div style="border-radius: 2px; margin: 40px; border: 3px solid skyblue; padding:20px">  
+            <h1 style="text-align: center; font-family: 'title', 'Roboto', sans-serif, Helvetica Neue; font-size: 40px;" > ROOM-TRAVERSAl </h1> 
+        </div>
 
-            <form action="http://cs.mcgill.ca/~jma229/cgi-bin/room.cgi" method="post">
+        
+      
+            <form style="width: 600px; margin:0 auto" action="http://cs.mcgill.ca/~jma229/cgi-bin/room.cgi" method="post">
             <input type="hidden" name="inventory" value="1,0"/>
-                <input style="width: 300px; height: 30px" type="textbox" name="command">
-                <input class="button submit" type="submit" text="Submit">
+            <input style="width: 300px; height: 35px" type="textbox" name="command">             
+            <input class="button button-primary shadow" class="button submit" type="submit" value="Submit">            
             </form>
+        
 
-            <form action="http://cs.mcgill.ca/~jmanal2/cgi-bin/transporter.py" method="post" >
+            
+            <form class="centerform" action="http://cs.mcgill.ca/~jmanal2/cgi-bin/transporter.py" method="post" >
             <input type="hidden" name="inventory" value="1,0"/>
             <input type="hidden" name="URL" value="http://cs.mcgill.ca/~jma229/cgi-bin/"/>
-            <input class="button" type="submit" name="direction" value="North"/>
+            <input class=" button button-secondary" type="submit" name="direction" value="North"/>
             </form>
 
-            <form action="http://cs.mcgill.ca/~hnguye124/cgi-bin/transporter.py" method="post" >
+            <form class="centerform" action="http://cs.mcgill.ca/~hnguye124/cgi-bin/transporter.py" method="post" >
             <input type="hidden" name="inventory" value="1,0"/>
             <input type="hidden" name="URL" value="http://cs.mcgill.ca/~jma229/cgi-bin/room.cgi"/>
-            <input class="button" type="submit" name="direction" value="East"/>
+            <input class="button button-secondary" type="submit" name="direction" value="East"/>
             </form>
 
-            <form action="http://cs.mcgill.ca/~smonfo1/cgi-bin/transporter.py" method="post" >
+            <form class="centerform" action="http://cs.mcgill.ca/~smonfo1/cgi-bin/transporter.py" method="post" >
             <input type="hidden" name="inventory" value="1,0"/>
             <input type="hidden" name="URL" value="http://cs.mcgill.ca/~jma229/cgi-bin/room.cgi"/>
-            <input class="button" type="submit" name="direction" value="West"/>
+            <input class="button button-secondary"  type="submit" name="direction" value="West"/>
             </form>
 
-            <form action="http://cs.mcgill.ca/~scrist4/cgi-bin/transporter.py" method="post">
+            <form class="centerform" action="http://cs.mcgill.ca/~scrist4/cgi-bin/transporter.py" method="post">
             <input type="hidden" name="inventory" value="1,0"/>
             <input type="hidden" name="URL" value="http://cs.mcgill.ca/~jma229/cgi-bin/room.cgi"/>
-            <input class="button" type="submit" name="direction" value="South"/>
+            <input class="button button-secondary" type="submit" name="direction" value="South"/>
             </form>
             <div class="playerItem">
             Your inventory: </br>
             Mana: 1 </br>
             Gold: 0
             </div>
-        </div>
-
+</div>
     </div>
 </body>
 </html>
