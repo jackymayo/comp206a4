@@ -2,6 +2,8 @@
 <html>
     <head>
         
+        <script src="https://use.fontawesome.com/5b2f05b106.js"></script>
+
         <link rel="stylesheet" type="text/css" href="forthecss.css"/>
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
         <meta charset="UTF-8">
@@ -22,33 +24,31 @@
             <input class="button button-primary shadow" class="button submit" type="submit" value="Submit">            
             </form>
         
-
             
             <form class="centerform" action="http://cs.mcgill.ca/~jmanal2/cgi-bin/transporter.py" method="post" >
             <input type="hidden" name="inventory" value="1,0"/>
             <input type="hidden" name="URL" value="http://cs.mcgill.ca/~jma229/cgi-bin/"/>
-            <input class=" button button-secondary" type="submit" name="direction" value="North"/>
+            <button class="button button-secondary" type="submit"><i class="fa fa-arrow-up" aria-hidden="true"></i> North </button>
             </form>
 
             <form class="centerform" action="http://cs.mcgill.ca/~hnguye124/cgi-bin/transporter.py" method="post" >
             <input type="hidden" name="inventory" value="1,0"/>
             <input type="hidden" name="URL" value="http://cs.mcgill.ca/~jma229/cgi-bin/room.cgi"/>
-            <input class="button button-secondary" type="submit" name="direction" value="East"/>
+            <button class="button button-secondary" type="submit"><i class="fa fa-arrow-right" aria-hidden="true"></i> East </button>
             </form>
 
             <form class="centerform" action="http://cs.mcgill.ca/~smonfo1/cgi-bin/transporter.py" method="post" >
             <input type="hidden" name="inventory" value="1,0"/>
             <input type="hidden" name="URL" value="http://cs.mcgill.ca/~jma229/cgi-bin/room.cgi"/>
-            <input class="button button-secondary"  type="submit" name="direction" value="West"/>
+            <button class="button button-secondary" type="submit"><i class="fa fa-arrow-left" aria-hidden="true"></i> West </button>
             </form>
 
             <form class="centerform" action="http://cs.mcgill.ca/~scrist4/cgi-bin/transporter.py" method="post">
             <input type="hidden" name="inventory" value="1,0"/>
             <input type="hidden" name="URL" value="http://cs.mcgill.ca/~jma229/cgi-bin/room.cgi"/>
-            <input class="button button-secondary" type="submit" name="direction" value="South"/>
+            <button class="button button-secondary" type="submit"><i class="fa fa-arrow-down" aria-hidden="true"></i> South </button>
             </form>
             <div class="playerItem">
-            Your inventory: </br>
             Mana: 1 </br>
             Gold: 0
             </div>
