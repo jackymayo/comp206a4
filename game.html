@@ -3,6 +3,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="../forthecss.css"/>
         <script src="../js/game.js"></script>
+        <script src="../js/info.js"></script>
         <meta charset="UTF-8">
     </head>
 <body onload="startGame()">    
@@ -19,7 +20,7 @@
                 <button class="button button-secondary" onclick="moveRight()">Right</button> 
                 </div>
             </div>
-        <div id="canvaslocation" style="padding-top: 10px; font-family: Helvetica Neue;"> Guess a number between 0 to 3 or Type QUIT to exit. </div>
+        <div id="myAlert" style="margin-bottom: 5px; padding: 10px" class="infobox fade"><i style="margin-right: 5px" id="question" class="fa fa-exclamation-circle" aria-hidden="true"></i> Guess a number between 0 to 3 or Type QUIT to exit. </div>
         <form style="margin: 0 auto; display:table; padding-top: 20px;" action="http://cs.mcgill.ca/~jma229/cgi-bin/game.py" method="post">
             &
             <input style="width: 300px; height: 30px; margin-right: 10px" type="textbox" name="command">
