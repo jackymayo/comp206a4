@@ -9,7 +9,22 @@
        url('bebasreg.otf') format('opentype'); /* Legacy iOS */
 }
 
-            canvas {
+@-webkit-keyframes fadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+ .fade {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.fade.in {
+    opacity: 1;
+}
+canvas {
     border:1px solid #d3d3d3;
     background-color: #f1f1f1;
 }
@@ -52,6 +67,13 @@
         color: #90A4AE;
         border: 1px solid #ECEFF1;
 }
+.infobox{
+    border-radius:2px;
+    background-color:#fff;
+    color: #90A4AE;
+    border: 1px solid #ECEFF1;
+}
+
 .button.button-secondary:hover{
         border: 1px solid #2196F3;
         color: #2196F3;

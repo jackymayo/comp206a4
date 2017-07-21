@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        
+    <head>        
         <script src="https://use.fontawesome.com/5b2f05b106.js"></script>
-
+        <script src="js/info.js"></script>
         <link rel="stylesheet" type="text/css" href="forthecss.css"/>
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
         <meta charset="UTF-8">
     </head>
 <body>
-    
+
     <div style="height: 56px; display:block; position: absolute; top: 0px; background-color: #263238"></div>
     <div class="centerblock">
-        <div style="border-radius: 2px; margin: 40px; border: 3px solid skyblue; padding:20px">  
+        <div style="border-radius: 2px; margin: 40px 0px 20px; border: 3px solid skyblue; padding:20px">  
             <h1 style="text-align: center; font-family: 'title', 'Roboto', sans-serif, Helvetica Neue; font-size: 40px;" > ROOM-TRAVERSAl </h1> 
         </div>
-
-        
+            
+        <div id="myAlert" style="margin-bottom: 5px; padding: 10px" class="infobox fade"><i style="margin-right: 5px" id="question" class="fa fa-exclamation-circle" aria-hidden="true"></i>Commands include: </br>
+            <strong>Play:</strong> Play a game for gold or mana </br>
+            <strong>Drop n:</strong> where n is the number of gold you want to drop. 2 gold drop gives 1 mana. </br>
+            <strong>Exit:</strong> Drop all your resources to the room.
+        </div>
       
             <form style="width: 600px; margin:0 auto" action="http://cs.mcgill.ca/~jma229/cgi-bin/room.cgi" method="post">
             <input type="hidden" name="inventory" value="1,0"/>
+            <i onmouseover="showAlert()" style="margin-right: 5px" id="question" class="fa fa-question-circle" aria-hidden="true"></i>
             <input style="width: 300px; height: 35px" type="textbox" name="command">             
             <input class="button button-primary shadow" class="button submit" type="submit" value="Submit">            
             </form>
