@@ -2,15 +2,24 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="../forthecss.css"/>
-        <link rel="stylesheet" type="text/css" href="forthecss.css"/>
+        <script src="../js/game.js"></script>
         <meta charset="UTF-8">
     </head>
-<body>    
-    <div class="centerblock">
-        <h1 style="text-align: center;font-family: Helvetica Neue" > 🤔 Guessing game </h1>
-            <div  style="width: 800px; position: relative; margin: auto;">
-
-        <span style="font-family: Helvetica Neue;"> Guess a number between 0 and 3. OR type QUIT to exit. </span>
+<body onload="startGame()">    
+    <div  class="centerblock">
+    
+        <h1 style="text-align: center;font-family: Helvetica Neue" > 🤔 Block game </h1>
+        <div id="mainbody" style="width: 720px; position: relative; margin: auto;">
+            <div id="controls">
+                <div class="centerform">
+                <button class="button button-secondary" onclick="playerJump()">Jump</button> <br>
+                </div>
+                <div class="centerform" style="width: 498px">
+                <button  class="button button-secondary" onclick="moveLeft()">Left</button>
+                <button class="button button-secondary" onclick="moveRight()">Right</button> 
+                </div>
+            </div>
+        <span id="canvaslocation" style="font-family: Helvetica Neue;"> Type QUIT to exit. </span>
         <form style="padding-top: 20px;" action="http://cs.mcgill.ca/~jma229/cgi-bin/game.py" method="post">
             &
             <input style="width: 300px; height: 30px" type="textbox" name="command">
