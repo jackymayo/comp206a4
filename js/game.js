@@ -59,6 +59,24 @@ function component(width,height,color,x,y,type){
     }
 }
 
+document.body.onkeydown = function(event){
+    event = event || window.event;
+    var keycode = event.charCode || event.keycode;
+    switch(keycode){
+        case 37:
+            moveLeft();
+            break;
+        case 38:
+            playerJump();
+            break;
+        case 39:
+            moveRight();
+            break;
+        default:
+            return;
+    }
+    event.preventDefault();
+}
 function refreshCanvas(){
     canvasObject.clear();
     objective.text ="Get to the end of the map";
@@ -67,11 +85,11 @@ function refreshCanvas(){
     player.update();
 }
 function moveLeft(){
-    player.speedX -= 2;
+    player.speedX -= 5;
 }
 
 function moveRight(){
-    player.speedX += 7;
+    player.speedX += 5;
 }
 
 function playerJump(){
