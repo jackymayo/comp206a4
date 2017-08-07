@@ -59,24 +59,26 @@ function component(width,height,color,x,y,type){
     }
 }
 
-document.body.onkeydown = function(event){
-    event = event || window.event;
-    var keycode = event.charCode || event.keycode;
-    switch(keycode){
-        case 37:
-            moveLeft();
-            break;
-        case 38:
-            playerJump();
-            break;
-        case 39:
-            moveRight();
-            break;
-        default:
-            return;
-    }
-    event.preventDefault();
+function checkKey(event){
+event = event || window.event;
+var keycode = event.key || event.keycode;
+console.log(keycode);
+switch(keycode){
+    case "ArrowLeft":
+        moveLeft();
+        break;
+    case "ArrowUp":
+        playerJump();
+        break;
+    case "ArrowRight":
+        moveRight();
+        break;
+    default:
+        return;
 }
+event.preventDefault();
+};
+
 function refreshCanvas(){
     canvasObject.clear();
     objective.text ="Get to the end of the map";
