@@ -116,7 +116,7 @@ void printRefresh(int playerItem[]){
                 continue;
             } 
             else if(c == '@'){
-                printf("<div class=\"button button-secondary\"> Your inventory: </br> Mana: %d </br> Gold: %d </div>",  playerItem[0], playerItem[1]);
+                printf("<div class=\"playerItem\"> Your inventory: </br> Mana: %d </br> Gold: %d </div>",  playerItem[0], playerItem[1]);
             }
             else
                 putchar(c);

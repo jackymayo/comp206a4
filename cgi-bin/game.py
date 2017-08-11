@@ -20,7 +20,7 @@ def printRoom(winForm):
 			lines[i] = lines[i].replace("none", "block")
 		lines[i] = lines[i].replace("Room has...", "Room has {0} Mana and {1} Gold".format(resource[0][0], resource[0][1]))
 		lines[i] = lines[i].replace("&", "<input type=\"hidden\" name=\"inventory\"value=\"{0},{1}\">".format(mana,gold))
-		lines[i] =lines[i].replace("@", "<div class=\"button button-secondary\"> Mana: {0} </br> Gold: {1} </div>".format(mana,gold))
+		lines[i] =lines[i].replace("@", "<div class=\"playerItem\"> Mana: {0} </br> Gold: {1} </div>".format(mana,gold))
 	for i in range(len(lines)):
 		print(lines[i])
 	return
