@@ -33,7 +33,7 @@ def writeResource(list):
 
 
 print "Content-Type: text/html"
-print
+print 
 
 form = cgi.FieldStorage()
 # Generate a number
@@ -56,6 +56,7 @@ if 'command' in form:
 	command = form['command'].value.lower()
 	if ("quit" in command):
 		r = requests.post("http://cs.mcgill.ca/~jma229/cgi-bin/room.cgi", data = { 'command': 'refresh', 'inventory': '{0},{1}'.format(mana, gold)})
+		print(r.content);
 	elif (command.isdigit()):
 		# If player guesses correctely
 		if (int(command) == guess):
