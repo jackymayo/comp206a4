@@ -18,6 +18,9 @@ var canvasObject = {
     },
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    },
+    stop : function() {
+        clearInterval(this.interval);
     }
 }
 
@@ -55,7 +58,16 @@ function component(width,height,color,x,y,type){
             this.gravitySpeed = -(this.gravitySpeed*this.recoil); // Go up on the canvas
             this.speedY = 0;
             this.y = bottom;
+            return true;
         }
+        return false;
+    },
+    this.reachEnd = function(){
+        var blockPos = (parseInt(this.x) + parseInt(this.width));        
+        if (blockPos >= parseInt(canvasObject.canvas.width)){
+            return true;
+        }
+        return false;
     }
 }
 
@@ -80,11 +92,18 @@ event.preventDefault();
 };
 
 function refreshCanvas(){
-    canvasObject.clear();
-    objective.text ="Get to the end of the map";
-    objective.update();
-    player.newPos();
-    player.update();
+    if (player.reachEnd()){
+        canvasObject.stop();
+        var inven = document.getElementById('inv').getAttribute('value');
+        formRequest("http://cs.mcgill.ca/~jma229/cgi-bin/game.py", {game: "bla", inventory: inven});
+    }
+    else{
+        canvasObject.clear();
+        objective.text ="Get to the end of the map";
+        objective.update();
+        player.newPos();
+        player.update();
+    }
 }
 function moveLeft(){
     player.speedX -= 5;
@@ -95,5 +114,29 @@ function moveRight(){
 }
 
 function playerJump(){
-    player.speedY -= 15;
+    if(player.speedY == 0){
+        player.speedY = -15;
+    }
+    
+}
+
+function formRequest(path, params, method){
+    method = method || "post";
+
+    var form = document.createElement("form");
+    form.setAttribute("method", method);
+    form.setAttribute("action", path);
+
+    for(var key in params){
+        if(params.hasOwnProperty(key)) {
+            var hiddenField = document.createElement("input");
+            hiddenField.setAttribute("type", "hidden");
+            hiddenField.setAttribute("name", key);
+            hiddenField.setAttribute("value", params[key]);
+
+            form.appendChild(hiddenField);
+        }
+    }
+    document.body.appendChild(form);
+    form.submit();
 }
