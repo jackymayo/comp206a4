@@ -31,6 +31,7 @@ def writeResource(list):
 		writer.writerow([x for x in list[0]])
 	return
 
+
 print "Content-Type: text/html"
 print
 
@@ -52,10 +53,10 @@ gold = playerItem[1]
 # Get his command either a number or quit
 # If he's not using reward form
 if 'command' in form:
+	print("WHY AM I HERE")
 	command = form['command'].value.lower()
 	if ("quit" in command):
 		r = requests.post("http://cs.mcgill.ca/~jma229/cgi-bin/room.cgi", data = { 'command': 'refresh', 'inventory': '{0},{1}'.format(mana, gold)})
-		print(r.content)
 	elif (command.isdigit()):
 		# If player guesses correctely
 		if (int(command) == guess):
@@ -68,16 +69,14 @@ if 'command' in form:
 		printA("Invalid Command", "error")
 	# Finish up other process 
 	# New page reward form processing
-elif 'reward' not in form:
-	printRoom(False)
-	printA("Invalid Command", "error")
-else:
+elif 'game' in form:
+	printRoom(True)
+elif 'reward' in form:
 	reward = form['reward'].value.split(',')
 	rewardMana = int(reward[0]) + int(mana)
 	rewardGold = int(reward[1]) + int(gold)
 	roomLimitMana = int(resource[0][0]) - int(reward[0])
 	roomLimitGold = int(resource[0][1]) - int(reward[1])
-
 	# If player doesn't try to take more than is available
 	if (roomLimitMana >= 0 and roomLimitGold >=0):
 		
@@ -92,7 +91,9 @@ else:
 			print("You won :D")	
 	else:
 		printRoom(True)
-		printA("The room doesn't have the much resources, choose again.", "error")
-	
+		printA("The room doesn't have the much resources, choose again.", "error")	
+else:
+	printRoom(False)
+	printA("Invalid Command", "error")
 
 
