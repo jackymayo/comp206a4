@@ -94,7 +94,7 @@ event.preventDefault();
 function refreshCanvas(){
     if (player.reachEnd()){
         canvasObject.stop();
-        var inven = document.getElementById('inv').getAttribute('value');
+        var inven = document.querySelector("input[name='inventory']").getAttribute('value');
         formRequest("http://cs.mcgill.ca/~jma229/cgi-bin/game.py", {game: "bla", inventory: inven});
     }
     else{
