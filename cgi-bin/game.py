@@ -53,7 +53,6 @@ gold = playerItem[1]
 # Get his command either a number or quit
 # If he's not using reward form
 if 'command' in form:
-	print("WHY AM I HERE")
 	command = form['command'].value.lower()
 	if ("quit" in command):
 		r = requests.post("http://cs.mcgill.ca/~jma229/cgi-bin/room.cgi", data = { 'command': 'refresh', 'inventory': '{0},{1}'.format(mana, gold)})
