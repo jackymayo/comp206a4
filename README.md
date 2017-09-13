@@ -1,11 +1,11 @@
 # Assignment 4 
 
-Due to time constraint, we're only going to develop the textbox processing in C and the rest will be in Python.
+Due to time constraint and Blair/Henry being busy, I'll be developing the textbox processing in C and the remaining will be in Python.
 
 ## Task division:
-- [ ] **Jacky**: Command processing in C, Python transporter,  Game in C/Python, HTML
-- [ ] **Henry**: Study for 273
-- [ ] **Blair**: Study for 273
+- [ ] **Jacky**: Command processing in C, Python transporter script,  Game in C/Python
+- [ ] **Henry**: Python transporter prototype
+- [ ] **Blair**: Quick initial draft of game in C 
 
 ## Getting Started
 
